@@ -1,6 +1,6 @@
-package hiber.service;
+package hibernate.service;
 
-import hiber.model.User;
+import hibernate.model.User;
 
 import java.util.List;
 

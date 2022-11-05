@@ -1,15 +1,16 @@
-package hiber;
+package hibernate;
 
-import hiber.config.AppConfig;
-import hiber.model.Car;
-import hiber.model.User;
-import hiber.service.UserService;
+import hibernate.config.AppConfig;
+import hibernate.model.Car;
+import hibernate.model.User;
+import hibernate.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class  MainApp {
+   @SuppressWarnings("RedundantThrows")
    public static void main(String[] args) throws SQLException {
       AnnotationConfigApplicationContext context = 
             new AnnotationConfigApplicationContext(AppConfig.class);
@@ -37,7 +38,7 @@ public class  MainApp {
          System.out.println();
       }
 
-      User user = userService.getUserByCar("lamborghini", 4);
+      User user = userService.getUserByCar("mercedes", 3);
       System.out.println("User: " + user.getFirstName()+ " " + user.getLastName());
 
       context.close();

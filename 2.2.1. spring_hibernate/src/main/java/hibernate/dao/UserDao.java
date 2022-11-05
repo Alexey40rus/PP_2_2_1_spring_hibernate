@@ -1,6 +1,6 @@
-package hiber.dao;
+package hibernate.dao;
 
-import hiber.model.User;
+import hibernate.model.User;
 
 import java.util.List;
 

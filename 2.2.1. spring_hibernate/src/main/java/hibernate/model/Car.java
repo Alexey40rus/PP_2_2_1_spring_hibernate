@@ -1,4 +1,4 @@
-package hiber.model;
+package hibernate.model;
 
 import javax.persistence.*;
 
