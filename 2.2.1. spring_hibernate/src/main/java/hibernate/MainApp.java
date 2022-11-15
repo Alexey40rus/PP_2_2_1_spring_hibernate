@@ -9,18 +9,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.sql.SQLException;
 import java.util.List;
 
-public class  MainApp {
+public class MainApp {
    @SuppressWarnings("RedundantThrows")
    public static void main(String[] args) throws SQLException {
-      AnnotationConfigApplicationContext context = 
-            new AnnotationConfigApplicationContext(AppConfig.class);
+      AnnotationConfigApplicationContext context =
+              new AnnotationConfigApplicationContext(AppConfig.class);
 
       UserService userService = context.getBean(UserService.class);
 
-      Car car1 = new Car("porsche", 1 );
-      Car car2= new Car("bmw", 2 );
-      Car car3 = new Car("mercedes", 3 );
-      Car car4 = new Car("lamborghini", 4 );
+      Car car1 = new Car("porsche", 1);
+      Car car2 = new Car("bmw", 2);
+      Car car3 = new Car("mercedes", 3);
+      Car car4 = new Car("lamborghini", 4);
 
       userService.add(new User("Alex", "Mareev", "alex@mail.ru", car1));
       userService.add(new User("Elena", "Mareeva", "elena@mail.ru", car2));
@@ -29,17 +29,17 @@ public class  MainApp {
 
       List<User> users = userService.listUsers();
       for (User user : users) {
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         System.out.println("Car model = "+user.getCar().getModel());
-         System.out.println("Car series = "+user.getCar().getSeries());
+         System.out.println("Id = " + user.getId());
+         System.out.println("First Name = " + user.getFirstName());
+         System.out.println("Last Name = " + user.getLastName());
+         System.out.println("Email = " + user.getEmail());
+         System.out.println("Car model = " + user.getCar().getModel());
+         System.out.println("Car series = " + user.getCar().getSeries());
          System.out.println();
       }
 
-      User user = userService.getUserByCar("mercedes", 3);
-      System.out.println("User: " + user.getFirstName()+ " " + user.getLastName());
+      User user = userService.getUserByCar("bmw", 2);
+      System.out.println("User: " + user.getFirstName() + " " + user.getLastName());
 
       context.close();
    }
