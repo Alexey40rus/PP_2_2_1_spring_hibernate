@@ -6,6 +6,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -25,8 +26,8 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public List<User> listUsers() {
-      String hql = "from User";
-      return sessionFactory.getCurrentSession().createQuery(hql).getResultList();
+      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
+      return query.getResultList();
    }
 
    @Override
